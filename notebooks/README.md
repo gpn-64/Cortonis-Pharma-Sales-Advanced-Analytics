@@ -1,14 +1,14 @@
 # Notebooks
 
-Les analyses reproductibles sont organisées ainsi :
+The reproducible analyses are organized as follows:
 
-1. `01_customer_segmentation.ipynb` : segmentation RFM + K-Means
-2. `02_territory_underperformance.ipynb` : performance ville/région
-3. `03_sales_forecast.ipynb` : backtest et prévision
+1. `01_customer_segmentation.ipynb`: RFM segmentation + K-Means
+2. `02_territory_underperformance.ipynb`: city and regional performance
+3. `03_sales_forecast.ipynb`: backtesting and forecasting
 
-Chaque notebook devra charger les données préparées, appeler les fonctions de `src/`, afficher les contrôles qualité et exporter les tables consommées par Power BI.
+Each notebook loads the prepared data, calls functions from `src/`, displays quality checks and exports the tables consumed by Power BI.
 
-Pour régénérer tous les exports en une seule commande :
+To regenerate all exports with one command:
 
 ```powershell
 .\.venv\Scripts\python.exe scripts/run_pipeline.py

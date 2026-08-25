@@ -1,5 +1,5 @@
-# Résultats générés
+# Generated Results
 
-Les exports destinés à Power BI seront produits ici, idéalement en CSV ou Parquet selon le besoin du modèle.
+Power BI exports are generated here, preferably as CSV or Parquet depending on the model requirements.
 
-Les trois classeurs historiques à la racine servent de référence de lecture uniquement et ne font pas partie du pipeline de production.
+The three historical workbooks at the repository root are reference material only and are not part of the production pipeline.

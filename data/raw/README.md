@@ -1,5 +1,5 @@
-# Données brutes
+# Raw Data
 
-Déposer ici une copie originale du fichier transactionnel source, sans modification.
+Place an original copy of the source transaction file here without modification.
 
-Ne pas versionner le fichier de données dans Git. Documenter dans le journal du projet son nom, sa source, sa date de récupération et son hash SHA-256.
+Do not version the data file in Git. Record its name, source, retrieval date and SHA-256 hash in the project log.
