@@ -1,6 +1,8 @@
+il est dan
+
 # 💊 Cortonis Pharma - Advanced Analytics Layer
 
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)]() [![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)]() [![Prophet](https://img.shields.io/badge/Prophet-0088CC?style=for-the-badge&logo=facebook&logoColor=white)]() [![GeoPandas](https://img.shields.io/badge/GeoPandas-139C5A?style=for-the-badge&logo=googleearth&logoColor=white)]() [![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)]()
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)]() [![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)]() [![Prophet](https://img.shields.io/badge/Prophet-0088CC?style=for-the-badge&logo=facebook&logoColor=white)]() [![GeoPandas](https://img.shields.io/badge/GeoPandas-139C5A?style=for-the-badge&logo=googleearth&logoColor=white)]() [![Power BI](<https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black>)]()
 
 ## Context
 
@@ -43,12 +45,12 @@ Segments get their label after the fact (active/dormant from median recency, the
 
 I also reran the clustering on Germany only (frequency/monetary, since recency is meaningless without Poland) to check the segments weren't just an artifact of mixing both countries - got basically the same 2-tier split (263 vs 288 customers), so that part holds up.
 
-| Segment | Customers | % of customers | % of revenue | Notes |
-| --- | --- | --- | --- | --- |
-| Key Accounts | 211 | 28% | 48% | Highest value, weekly/bi-weekly visits |
-| Core Active | 340 | 45% | 46% | Monthly visits, cross-sell |
-| Dormant - High Potential | 86 | 11% | 3%* | Poland, worth a win-back look |
-| Dormant - Low Value | 114 | 15% | 3% | Low priority, digital only |
+| Segment                  | Customers | % of customers | % of revenue | Notes                                  |
+| ------------------------ | --------- | -------------- | ------------ | -------------------------------------- |
+| Key Accounts             | 211       | 28%            | 48%          | Highest value, weekly/bi-weekly visits |
+| Core Active              | 340       | 45%            | 46%          | Monthly visits, cross-sell             |
+| Dormant - High Potential | 86        | 11%            | 3%*          | Poland, worth a win-back look          |
+| Dormant - Low Value      | 114       | 15%            | 3%           | Low priority, digital only             |
 
 *revenue share is mechanically low here because of the 12-month window, not because these customers were small buyers.*
 
@@ -114,20 +116,48 @@ So: there's no real trend or seasonality to model here at this level of aggregat
 
 ## Files
 
-| File | Description |
-| --- | --- |
-| `customer_segmentation_rfm_kmeans.py` | Module 1 |
-| `territory_underperformance_analysis.py` | Module 2 |
-| `region_mapping.py` | region name cleanup used by Module 2 |
-| `sales_forecast_prophet.py` | Module 3 |
-| `Segmentation_Clients_RFM_KMeans.xlsx` | Module 1 output |
+| File                                         | Description     |
+| -------------------------------------------- | --------------- |
+| `Segmentation_Clients_RFM_KMeans.xlsx`     | Module 1 output |
 | `Territory_Underperformance_Analysis.xlsx` | Module 2 output |
-| `Sales_Forecast_Prophet.xlsx` | Module 3 output |
+| `Sales_Forecast_Prophet.xlsx`              | Module 3 output |
+
+The Excel files are historical reference outputs used to understand the analyses and
+the Power BI tables. They are not the production pipeline and can be replaced once
+the notebooks are rebuilt.
+
+## Development status
+
+The original notebooks, Python scripts and transaction-level source data are not
+currently available in this repository. The reproducible rebuild is being prepared
+with the following structure:
+
+| Path                   | Purpose                                               |
+| ---------------------- | ----------------------------------------------------- |
+| `data/raw/`          | Original source data, kept locally and never modified |
+| `data/processed/`    | Regenerated normalized and enriched tables            |
+| `src/`               | Reusable transformations and validation rules         |
+| `notebooks/`         | One notebook per analytical module                    |
+| `results/generated/` | CSV/Parquet outputs consumed by Power BI              |
+| `tests/`             | Data-contract and analytical validation tests         |
+
+The first prerequisite is to recover the transaction-level dataset and confirm its
+schema against the canonical contract in `src/data_contract.py`.
+
+The current local source is `data/raw/Pharm Data.xlsx`, using its `Data` sheet.
+The complete pipeline can be run with:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/run_pipeline.py
+```
+
+This regenerates the CSV tables in `results/generated/` for Power BI. No commit or
+push is performed by the project scripts.
 
 ---
 
 ## Data Source
 
-Foresight - Pharmaceutical Manufacturing Company's Wholesale-Retail Data: <https://foresightbi.com.ng/practice-data/3-datasets-for-your-portfolio/>
+Foresight - Pharmaceutical Manufacturing Company's Wholesale-Retail Data: [https://foresightbi.com.ng/practice-data/3-datasets-for-your-portfolio/](https://foresightbi.com.ng/practice-data/3-datasets-for-your-portfolio/)
 
 Part 2 of a two-part project - [Project 1](https://github.com/gpn64/Cortonis-Pharma-Sales-Dashboard) has the Power BI dashboard this builds on.

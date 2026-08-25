@@ -1,0 +1,23 @@
+# Local environments
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Local data and generated outputs
+data/raw/*
+data/processed/*
+results/generated/*
+!data/raw/README.md
+!data/processed/README.md
+!results/generated/README.md
+
+# Notebook-generated metadata
+.ipynb_checkpoints/
+
+# Local tooling
+.vscode/
+
+# Local building notes
+docs/building_guide.md
