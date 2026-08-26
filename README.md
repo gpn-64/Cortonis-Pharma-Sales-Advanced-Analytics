@@ -1,5 +1,3 @@
-il est dan
-
 # 💊 Cortonis Pharma - Advanced Analytics Layer
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)]() [![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)]() [![Prophet](https://img.shields.io/badge/Prophet-0088CC?style=for-the-badge&logo=facebook&logoColor=white)]() [![GeoPandas](https://img.shields.io/badge/GeoPandas-139C5A?style=for-the-badge&logo=googleearth&logoColor=white)]() [![Power BI](<https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black>)]()
