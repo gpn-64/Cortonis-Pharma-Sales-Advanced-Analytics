@@ -1,8 +1,27 @@
-il est dan
-
 # 💊 Cortonis Pharma - Advanced Analytics Layer
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)]() [![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)]() [![Prophet](https://img.shields.io/badge/Prophet-0088CC?style=for-the-badge&logo=facebook&logoColor=white)]() [![GeoPandas](https://img.shields.io/badge/GeoPandas-139C5A?style=for-the-badge&logo=googleearth&logoColor=white)]() [![Power BI](<https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black>)]()
+
+## About
+
+Cortonis Pharma Advanced Analytics is a Python and Power BI portfolio project built on the same pharmaceutical sales dataset as the [Cortonis Pharma Sales Dashboard](https://github.com/gpn64/Cortonis-Pharma-Sales-Dashboard).
+
+The dashboard answers what happened in the business. This project adds an analytical layer to answer three operational questions:
+
+- Which customers should receive the most attention?
+- Which cities may deserve a commercial review?
+- Which forecasting approach is reliable enough for target-setting?
+
+The project combines customer segmentation, territory analysis and sales forecasting. Each analysis is implemented in Python, documented in a Jupyter notebook and exported as flat tables designed for Power BI.
+
+The goal is not to force a sophisticated model onto the data. The workflow compares alternatives, documents uncertainty and keeps simple baselines when they perform better. This is especially important here because Germany has four years of history while Poland has only one.
+
+## Project Outcomes
+
+- RFM + K-Means segmentation of 751 customers into four actionable groups.
+- City-level performance analysis using population as a limited market-potential proxy.
+- Backtested therapeutic-class forecasts, including Prophet and simple baselines.
+- Reproducible CSV outputs for integration into a Power BI report.
 
 ## Context
 
@@ -54,7 +73,7 @@ I also reran the clustering on Germany only (frequency/monetary, since recency i
 
 *revenue share is mechanically low here because of the 12-month window, not because these customers were small buyers.*
 
-**Files:** `customer_segmentation_rfm_kmeans.py`, `Segmentation_Clients_RFM_KMeans.xlsx`
+**Reference:** `Segmentation_Clients_RFM_KMeans.xlsx`
 
 ---
 
@@ -78,7 +97,7 @@ Also worth flagging: Berlin, Hamburg and Bremen each have 1-2 customers in the d
 
 Biggest single opportunity in the scatter: Warsaw, largest city in the dataset and one of the weakest performers relative to its size. A handful of German cities (Düsseldorf, Leipzig, Essen) also show up here, and turn out to be Core Active customers from Module 1 rather than gaps in coverage - so more of a cross-sell opportunity than a new-account one.
 
-**Files:** `territory_underperformance_analysis.py`, `region_mapping.py`, `Territory_Underperformance_Analysis.xlsx`
+**Reference:** `Territory_Underperformance_Analysis.xlsx`
 
 ---
 
@@ -101,7 +120,7 @@ The plain average beat Prophet on all 6 classes. Ran auto-ARIMA too just to doub
 
 So: there's no real trend or seasonality to model here at this level of aggregation. My takeaway is to use historical mean +/- standard deviation for target-setting instead of the Prophet output, and if this project moved past a portfolio exercise, the next step would be finding an actual driver of demand (promotions, hospital tender cycles, something) rather than trying harder with the calendar alone.
 
-**Files:** `sales_forecast_prophet.py`, `Sales_Forecast_Prophet.xlsx`
+**Reference:** `Sales_Forecast_Prophet.xlsx`
 
 ---
 
@@ -128,9 +147,7 @@ the notebooks are rebuilt.
 
 ## Development status
 
-The original notebooks, Python scripts and transaction-level source data are not
-currently available in this repository. The reproducible rebuild is being prepared
-with the following structure:
+The reproducible rebuild uses the following structure:
 
 | Path                   | Purpose                                               |
 | ---------------------- | ----------------------------------------------------- |
