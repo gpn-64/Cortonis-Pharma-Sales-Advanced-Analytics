@@ -1,0 +1,374 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 3942.7030339165608
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 659.20085479838792,
+            "y": 10648.99842676226
+          },
+          "nodeIndex": "Calendar",
+          "nodeLineageTag": "c9059394-78be-483e-b762-87c1f11d701e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1260.0500569815335,
+            "y": 10140.302117359577
+          },
+          "nodeIndex": "K Selection",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1260.0500569815335,
+            "y": 9987.7256528060116
+          },
+          "nodeIndex": "Customer Segments",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1260.0500569815335,
+            "y": 9572.7051819070275
+          },
+          "nodeIndex": "Segment Profiles",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1260.0500569815335,
+            "y": 9383.8105238644
+          },
+          "nodeIndex": "Territories by City",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1260.0500569815335,
+            "y": 9105.1607480970251
+          },
+          "nodeIndex": "Territories by Region",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1260.0500569815335,
+            "y": 8770.2873078189932
+          },
+          "nodeIndex": "Territory Opportunities",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1260.0500569815335,
+            "y": 8395.7514235991184
+          },
+          "nodeIndex": "Monthly Sales History",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1260.0500569815335,
+            "y": 7841.4971793097357
+          },
+          "nodeIndex": "Forecast Prophet",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1260.0500569815335,
+            "y": 7181.6089639653856
+          },
+          "nodeIndex": "Forecast Backtest",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1260.0500569815335,
+            "y": 6515.1571875486879
+          },
+          "nodeIndex": "Forecast Metrics",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1260.0500569815335,
+            "y": 5581.7333572959033
+          },
+          "nodeIndex": "Product Class",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1452.8492021831457,
+            "y": 4402.5436538318127
+          },
+          "nodeIndex": "_Measures",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 38.15274715068108,
+            "y": 4870.7025600485058
+          },
+          "nodeIndex": "Transactions",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 934.84920218314562,
+            "y": 4352.5436538318127
+          },
+          "nodeIndex": "Country Coverage",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 49.590342827053831,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 864.81099654966863,
+            "y": 598.7944562889993
+          },
+          "nodeIndex": "Calendar",
+          "nodeLineageTag": "c9059394-78be-483e-b762-87c1f11d701e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2285.1726359650283,
+            "y": 274.39722814449965
+          },
+          "nodeIndex": "Customer Segments",
+          "nodeLineageTag": "80cda37a-8877-4eb7-91e4-1be36d98cdb3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 146.60759510831815,
+            "y": 407.29535361056969
+          },
+          "nodeIndex": "Forecast Backtest",
+          "nodeLineageTag": "3278ec40-e578-4e06-ba86-e5c2c4e0cd94",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 580.379747237552,
+            "y": 428.67921447189519
+          },
+          "nodeIndex": "Forecast Metrics",
+          "nodeLineageTag": "f198c84f-2626-4bd6-931a-3f456d7335c4",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 535.40959691154717,
+            "y": -50
+          },
+          "nodeIndex": "Forecast Prophet",
+          "nodeLineageTag": "0b0dfdfa-9b5d-4393-bb96-71c7a7f409c3",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2519.1726359650283,
+            "y": 410.39722814449965
+          },
+          "nodeIndex": "K Selection",
+          "nodeLineageTag": "44999a3b-acbc-446f-9a34-240beb7579d7",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 336.98158634378626,
+            "y": 202.38800315674393
+          },
+          "nodeIndex": "Monthly Sales History",
+          "nodeLineageTag": "71fdacbc-b7b3-4da7-b6ab-7f4c408b2db2",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": -18.571546575662524
+          },
+          "nodeIndex": "Product Class",
+          "nodeLineageTag": "5b8652d0-363a-450e-b78f-b7942bc98905",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2001.1726359650286,
+            "y": 274.39722814449965
+          },
+          "nodeIndex": "Segment Profiles",
+          "nodeLineageTag": "ef003998-98bd-4612-81db-bd3b4ebb9452",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1432.9957477302985,
+            "y": 274.39722814449965
+          },
+          "nodeIndex": "Territories by City",
+          "nodeLineageTag": "e7f8124e-9004-4df1-9efc-c5c84fe1e066",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1717.1726359650286,
+            "y": 301.72222077693482
+          },
+          "nodeIndex": "Territories by Region",
+          "nodeLineageTag": "29ee8a87-7b63-42ae-b80e-e4546a93342d",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1148.8109965496687,
+            "y": 281.46233732184169
+          },
+          "nodeIndex": "Territory Opportunities",
+          "nodeLineageTag": "cc4ead59-1585-4734-822b-97de65b09b36",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Layout 1",
+      "zoomValue": 32.188389405411044,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

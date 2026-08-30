@@ -1,0 +1,81 @@
+/// Module 2 — one row per city: population, monthly sales, log-log regression residual and quadrant.
+table 'Territories by City'
+	lineageTag: e7f8124e-9004-4df1-9efc-c5c84fe1e066
+
+	column City
+		dataType: string
+		lineageTag: 8ef619fa-b417-400e-8dea-08de99670786
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: City
+
+	column Country
+		dataType: string
+		lineageTag: 7128bfa9-4e6b-42a6-b094-7b45d24fdc02
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+	column RegionCanonical
+		dataType: string
+		lineageTag: 2ed15025-df0d-4976-b0ad-8e6410613310
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: RegionCanonical
+
+	column Population
+		dataType: double
+		formatString: #,0
+		lineageTag: cca23e0d-77bf-463f-951d-922f63995570
+		summarizeBy: sum
+		sourceColumn: Population
+
+	column Sales
+		dataType: double
+		formatString: #,0
+		lineageTag: edb76e1f-6be9-4e44-85ed-c4fe2a79ed7b
+		summarizeBy: sum
+		sourceColumn: Sales
+
+	column ActiveMonths
+		dataType: int64
+		lineageTag: dc94fc55-341c-40a0-8a6a-b43c85a08d45
+		summarizeBy: none
+		sourceColumn: ActiveMonths
+
+	column Channel
+		dataType: string
+		lineageTag: bc5fbfaf-7b78-40ba-a904-1065d06b46ea
+		summarizeBy: none
+		sourceColumn: Channel
+
+	column MonthlySales
+		dataType: double
+		formatString: #,0
+		lineageTag: 162039a3-4dac-4adb-b8da-d0257ba655f5
+		summarizeBy: none
+		sourceColumn: MonthlySales
+
+	column Residual
+		dataType: double
+		formatString: 0.000
+		lineageTag: 086cf8f7-ec0e-4263-bf43-f8f3ee62fcc9
+		summarizeBy: none
+		sourceColumn: Residual
+
+	column Quadrant
+		dataType: string
+		lineageTag: 87a96663-33ce-4179-8083-722f816774bd
+		summarizeBy: none
+		sourceColumn: Quadrant
+
+	partition 'Territories by City' = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Cortonis-Pharma-Sales-Advanced-Analytics\results\generated\territories_by_city.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				  Typed = Table.TransformColumnTypes(Promoted, {{"City", type text}, {"Country", type text}, {"RegionCanonical", type text}, {"Population", type number}, {"Sales", type number}, {"ActiveMonths", Int64.Type}, {"Channel", type text}, {"MonthlySales", type number}, {"Residual", type number}, {"Quadrant", type text}})
+				in
+				  Typed
+

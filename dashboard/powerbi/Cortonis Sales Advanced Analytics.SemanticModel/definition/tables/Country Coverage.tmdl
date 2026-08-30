@@ -1,0 +1,27 @@
+/// Observation-window metadata per country — single source for the partial-window warnings.
+table 'Country Coverage'
+
+	column Country
+		isNameInferred
+		sourceColumn: [Country]
+
+	column 'Start Year'
+		isNameInferred
+		sourceColumn: [Start Year]
+
+	column 'End Year'
+		isNameInferred
+		sourceColumn: [End Year]
+
+	column 'Months Observed'
+		isNameInferred
+		sourceColumn: [Months Observed]
+
+	column 'Full Window'
+		isNameInferred
+		sourceColumn: [Full Window]
+
+	partition 'Country Coverage' = calculated
+		mode: import
+		source = DATATABLE ( "Country", STRING, "Start Year", INTEGER, "End Year", INTEGER, "Months Observed", INTEGER, "Full Window", STRING, { { "Germany", 2017, 2020, 48, "Yes" }, { "Poland", 2018, 2018, 12, "No" } } )
+

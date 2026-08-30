@@ -1,0 +1,61 @@
+/// Module 2 — priority cities (most negative residuals) to review with the field team.
+table 'Territory Opportunities'
+	lineageTag: cc4ead59-1585-4734-822b-97de65b09b36
+
+	column City
+		dataType: string
+		lineageTag: 6b60883b-79da-4d11-b90e-438a604464af
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: City
+
+	column Country
+		dataType: string
+		lineageTag: 70c42fb1-44cd-4b23-9e72-0482a700fef0
+		summarizeBy: none
+		sourceColumn: Country
+
+	column RegionCanonical
+		dataType: string
+		lineageTag: a5c61746-3159-4388-8351-c2ab6a725cce
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: RegionCanonical
+
+	column Population
+		dataType: double
+		formatString: #,0
+		lineageTag: f904439f-92ab-4897-b16c-5020df6a8f5e
+		summarizeBy: none
+		sourceColumn: Population
+
+	column MonthlySales
+		dataType: double
+		formatString: #,0
+		lineageTag: ec1f4fe3-1ba8-4fbf-874f-a4fb152373a3
+		summarizeBy: none
+		sourceColumn: MonthlySales
+
+	column Residual
+		dataType: double
+		formatString: 0.000
+		lineageTag: 84f55d63-e9a1-45a3-bc4e-8f72fc51e06f
+		summarizeBy: none
+		sourceColumn: Residual
+
+	column Channel
+		dataType: string
+		lineageTag: c5063ffe-9c0f-4e1c-bdee-f4300904f230
+		summarizeBy: none
+		sourceColumn: Channel
+
+	partition 'Territory Opportunities' = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Cortonis-Pharma-Sales-Advanced-Analytics\results\generated\territory_opportunities.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				  Typed = Table.TransformColumnTypes(Promoted, {{"City", type text}, {"Country", type text}, {"RegionCanonical", type text}, {"Population", type number}, {"MonthlySales", type number}, {"Residual", type number}, {"Channel", type text}})
+				in
+				  Typed
+

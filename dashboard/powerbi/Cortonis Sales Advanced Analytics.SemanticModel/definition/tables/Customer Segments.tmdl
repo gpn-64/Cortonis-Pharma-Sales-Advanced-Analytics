@@ -1,0 +1,125 @@
+/// Module 1 — one row per customer: RFM, rates, K-Means cluster and business segment.
+table 'Customer Segments'
+	lineageTag: 80cda37a-8877-4eb7-91e4-1be36d98cdb3
+
+	column 'Customer Name'
+		dataType: string
+		isKey
+		isNullable: false
+		lineageTag: 3a2193a5-e7a3-49fe-88a6-324403a23084
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+	column Country
+		dataType: string
+		lineageTag: 85dffb99-a979-47b9-96e5-946ab2a31914
+		summarizeBy: none
+		sourceColumn: Country
+
+	column City
+		dataType: string
+		lineageTag: 83f9e75c-1848-4780-b5be-36e860272900
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: City
+
+	column Channel
+		dataType: string
+		lineageTag: df3142f4-9659-4777-9acf-ec6a920949af
+		summarizeBy: none
+		sourceColumn: Channel
+
+	column SubChannel
+		dataType: string
+		lineageTag: 990c1176-e1f9-4244-9c4d-28519d2a3796
+		summarizeBy: none
+		sourceColumn: SubChannel
+
+	column Frequency
+		dataType: int64
+		lineageTag: 249739f4-60cd-42f6-a7a7-1f3c958890ec
+		summarizeBy: sum
+		sourceColumn: Frequency
+
+	column Monetary
+		dataType: double
+		formatString: #,0
+		lineageTag: 45b49ff7-e315-4924-a4d1-7deeab1d78e7
+		summarizeBy: sum
+		sourceColumn: Monetary
+
+	column ActiveMonths
+		dataType: int64
+		lineageTag: 871ff761-3b9c-4ee6-ba0f-e5f885e677c6
+		summarizeBy: none
+		sourceColumn: ActiveMonths
+
+	column Recency
+		dataType: int64
+		lineageTag: 2da4e4e7-cffc-43fd-9893-b6d14a94e06c
+		summarizeBy: none
+		sourceColumn: Recency
+
+	column MonthlyOrderRate
+		dataType: double
+		formatString: 0.00
+		lineageTag: 075698c6-74dc-4c4d-bbe0-3f9723a3e4d6
+		summarizeBy: none
+		sourceColumn: MonthlyOrderRate
+
+	column MonthlyRevenueRate
+		dataType: double
+		formatString: #,0
+		lineageTag: e76d5230-279c-4ad9-a20b-170d59cf55c8
+		summarizeBy: none
+		sourceColumn: MonthlyRevenueRate
+
+	column AvgOrderValue
+		dataType: double
+		formatString: #,0
+		lineageTag: 9ca08f7d-cd57-44f1-b9c1-b81b9d8e87cf
+		summarizeBy: none
+		sourceColumn: AvgOrderValue
+
+	column Cluster
+		dataType: int64
+		lineageTag: c6521bf3-cde9-4ab3-97ff-65a00e007d06
+		summarizeBy: none
+		sourceColumn: Cluster
+
+	column IsActive
+		dataType: boolean
+		lineageTag: 22166803-2477-4406-8458-34f6739020d0
+		summarizeBy: none
+		sourceColumn: IsActive
+
+	column Status
+		dataType: string
+		lineageTag: 356549b4-f24e-441d-a014-990d1b6d65a8
+		summarizeBy: none
+		sourceColumn: Status
+
+	column Segment
+		dataType: string
+		lineageTag: f8dec73d-330e-4fce-891c-6cdd74b1d286
+		summarizeBy: none
+		sourceColumn: Segment
+		sortByColumn: 'Segment Order'
+
+	column 'Segment Order'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: Segment Order
+
+	partition 'Customer Segments' = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Cortonis-Pharma-Sales-Advanced-Analytics\results\generated\customer_segments.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				  Typed = Table.TransformColumnTypes(Promoted, {{"Customer Name", type text}, {"Country", type text}, {"City", type text}, {"Channel", type text}, {"SubChannel", type text}, {"Frequency", Int64.Type}, {"Monetary", type number}, {"ActiveMonths", Int64.Type}, {"Recency", Int64.Type}, {"MonthlyOrderRate", type number}, {"MonthlyRevenueRate", type number}, {"AvgOrderValue", type number}, {"Cluster", Int64.Type}, {"IsActive", type logical}, {"Status", type text}, {"Segment", type text}}),
+				  WithOrder = Table.AddColumn(Typed, "Segment Order", each if [Segment] = "Comptes Strategiques (Key Accounts)" then 1 else if [Segment] = "Coeur de Portefeuille (Core Active)" then 2 else if [Segment] = "Dormants a Haut Potentiel (Win-back prioritaire)" then 3 else if [Segment] = "Dormants a Faible Valeur" then 4 else 99, Int64.Type)
+				in
+				  WithOrder
+

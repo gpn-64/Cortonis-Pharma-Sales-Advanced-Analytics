@@ -1,0 +1,48 @@
+/// Module 3 — Prophet fit + 12-month forward forecast with 80% interval, by class.
+table 'Forecast Prophet'
+	lineageTag: 0b0dfdfa-9b5d-4393-bb96-71c7a7f409c3
+
+	column ds
+		dataType: dateTime
+		formatString: yyyy-mm
+		lineageTag: a4e4797e-6e56-4b47-8b66-8c5519182f96
+		summarizeBy: none
+		sourceColumn: ds
+
+	column yhat
+		dataType: double
+		formatString: #,0
+		lineageTag: 66163f51-bf96-4ba3-a27c-b45fb66ab7c1
+		summarizeBy: sum
+		sourceColumn: yhat
+
+	column yhat_lower
+		dataType: double
+		formatString: #,0
+		lineageTag: 7cb648cd-03b3-4599-9a57-5152d864db36
+		summarizeBy: sum
+		sourceColumn: yhat_lower
+
+	column yhat_upper
+		dataType: double
+		formatString: #,0
+		lineageTag: d5d90ae0-622e-4e9a-ab36-17ece035bc28
+		summarizeBy: sum
+		sourceColumn: yhat_upper
+
+	column 'Product Class'
+		dataType: string
+		lineageTag: 6369e8a4-8640-4baf-84f1-71247a3abbcf
+		summarizeBy: none
+		sourceColumn: Product Class
+
+	partition 'Forecast Prophet' = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Cortonis-Pharma-Sales-Advanced-Analytics\results\generated\sales_forecast_prophet.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				  Typed = Table.TransformColumnTypes(Promoted, {{"ds", type datetime}, {"yhat", type number}, {"yhat_lower", type number}, {"yhat_upper", type number}, {"Product Class", type text}})
+				in
+				  Typed
+

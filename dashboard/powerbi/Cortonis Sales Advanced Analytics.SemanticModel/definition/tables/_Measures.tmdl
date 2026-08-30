@@ -1,0 +1,242 @@
+/// Dedicated measures table — no data, holds all model measures.
+table _Measures
+	lineageTag: ae70c54b-9c44-41ee-996c-3c664ee150c5
+
+	/// Distinct customers in filter context.
+	measure Customers = COUNTROWS ( 'Customer Segments' )
+		formatString: #,0
+		displayFolder: 01 Customers
+		lineageTag: 1a4ca98c-2faa-4381-8dda-55919d35609d
+
+	/// Total sales over the observation window (Customer Segments[Monetary]).
+	measure Revenue = SUM ( 'Customer Segments'[Monetary] )
+		formatString: #,0
+		displayFolder: 01 Customers
+		lineageTag: 26ba3ed6-2956-49dd-802d-80d66ac6243e
+
+	measure 'Active Customers' = CALCULATE ( [Customers], 'Customer Segments'[IsActive] = TRUE )
+		formatString: #,0
+		displayFolder: 01 Customers
+		lineageTag: 7f573a0f-bfdf-420a-983f-1591aa6deb37
+
+	measure 'Customers %' = DIVIDE ( [Customers], CALCULATE ( [Customers], REMOVEFILTERS ( 'Customer Segments' ), REMOVEFILTERS ( 'Segment Profiles' ) ) )
+		formatString: 0.0%
+		displayFolder: 01 Customers
+		lineageTag: e9ca3337-5fce-4c39-9a20-40643f5d0f90
+
+	measure 'Revenue %' = DIVIDE ( [Revenue], CALCULATE ( [Revenue], REMOVEFILTERS ( 'Customer Segments' ), REMOVEFILTERS ( 'Segment Profiles' ) ) )
+		formatString: 0.0%
+		displayFolder: 01 Customers
+		lineageTag: ad13b94c-a2ec-4b2c-9c3c-2a4b4b5a950e
+
+	/// Mean of Monetary / ActiveMonths — comparable across the DE (48m) and PL (12m) windows.
+	measure 'Avg Monthly Revenue Rate' = AVERAGE ( 'Customer Segments'[MonthlyRevenueRate] )
+		formatString: #,0
+		displayFolder: 01 Customers
+		lineageTag: cb7bffa7-9da6-45bc-81f1-4aa71203aeda
+
+	measure 'Avg Frequency' = AVERAGE ( 'Customer Segments'[Frequency] )
+		formatString: 0.0
+		displayFolder: 01 Customers
+		lineageTag: 0e7a9f69-a4f0-4980-a1ad-24b1225ca7cd
+
+	measure 'Avg Recency (months)' = AVERAGE ( 'Customer Segments'[Recency] )
+		formatString: 0.0
+		displayFolder: 01 Customers
+		lineageTag: ea801ef5-e9ae-4ad5-9ebd-1ae6c6cd93ff
+
+	measure Cities = COUNTROWS ( 'Territories by City' )
+		formatString: #,0
+		displayFolder: 02 Territories
+		lineageTag: 3223a00d-45cb-4b09-9c0e-88790f162fcd
+
+	/// Sum of city-level Sales / ActiveMonths.
+	measure 'City Monthly Sales' = SUM ( 'Territories by City'[MonthlySales] )
+		formatString: #,0
+		displayFolder: 02 Territories
+		lineageTag: 82989426-523c-49d0-b1bb-c97ec16af2b0
+
+	measure Population = SUM ( 'Territories by City'[Population] )
+		formatString: #,0
+		displayFolder: 02 Territories
+		lineageTag: 4fbc48f7-8688-49c8-ba3d-be198ac16556
+
+	measure 'Sales per Capita (monthly)' = DIVIDE ( [City Monthly Sales], [Population] )
+		formatString: 0.00
+		displayFolder: 02 Territories
+		lineageTag: 1206fac8-135e-4430-b3cc-a0a53646331d
+
+	/// Mean residual of the log-log Population->MonthlySales regression (R2 ~ 0.02: weak explanatory power).
+	measure 'Avg Residual' = AVERAGE ( 'Territories by City'[Residual] )
+		formatString: 0.000
+		displayFolder: 02 Territories
+		lineageTag: 3d929021-2eaa-45bf-a7d4-843b773f1533
+
+	measure 'Underserved Cities' = CALCULATE ( [Cities], KEEPFILTERS ( 'Territories by City'[Quadrant] = "Sous-exploite (opportunite)" ) )
+		formatString: #,0
+		displayFolder: 02 Territories
+		lineageTag: 3855266b-73c9-447d-aa42-c63d4aa56522
+
+	measure 'Underserved Cities %' = DIVIDE ( [Underserved Cities], CALCULATE ( [Cities], REMOVEFILTERS ( 'Territories by City'[Quadrant] ) ) )
+		formatString: 0.0%
+		displayFolder: 02 Territories
+		lineageTag: 0c4eea98-efe0-4844-b07e-14afda118102
+
+	/// Priority cities (most negative residuals) — to validate with the field team, not proof of undercoverage.
+	measure 'Opportunity Cities' = COUNTROWS ( 'Territory Opportunities' )
+		formatString: #,0
+		displayFolder: 02 Territories
+		lineageTag: 16326da5-9ad9-4539-be29-d3a6a888e2ad
+
+	/// Monthly sales by therapeutic class, Germany only.
+	measure 'Actual Sales' = SUM ( 'Monthly Sales History'[y] )
+		formatString: #,0
+		displayFolder: 03 Forecast
+		lineageTag: dbfe7cc5-c7a4-44a2-bc20-f6b5f07dd44f
+
+	measure 'Forecast (Prophet)' = SUM ( 'Forecast Prophet'[yhat] )
+		formatString: #,0
+		displayFolder: 03 Forecast
+		lineageTag: 737ac242-e649-4450-a1d7-96c6ef1f4bb8
+
+	measure 'Forecast Low (80%)' = SUM ( 'Forecast Prophet'[yhat_lower] )
+		formatString: #,0
+		displayFolder: 03 Forecast
+		lineageTag: b6955e53-689e-4642-be24-05e83f363ebd
+
+	measure 'Forecast High (80%)' = SUM ( 'Forecast Prophet'[yhat_upper] )
+		formatString: #,0
+		displayFolder: 03 Forecast
+		lineageTag: ae54c6ed-fa29-48bb-b4a7-53a2f6b90c01
+
+	/// Target-setting baseline: mean monthly sales over the TRAINING window (2017-2019), excluding the 2020 backtest year. Beat Prophet on all 6 classes.
+	measure 'Historical Monthly Mean' = CALCULATE ( AVERAGEX ( VALUES ( 'Monthly Sales History'[ds] ), CALCULATE ( SUM ( 'Monthly Sales History'[y] ) ) ), 'Monthly Sales History'[ds] < DATE ( 2020, 1, 1 ) )
+		formatString: #,0
+		displayFolder: 03 Forecast
+		lineageTag: 310dd926-906c-4cee-8fc5-d59fb88cbc17
+
+	/// Sample standard deviation of monthly sales over 2017-2019. Feeds the target band.
+	measure 'Historical Monthly SD' = CALCULATE ( STDEVX.S ( VALUES ( 'Monthly Sales History'[ds] ), CALCULATE ( SUM ( 'Monthly Sales History'[y] ) ) ), 'Monthly Sales History'[ds] < DATE ( 2020, 1, 1 ) )
+		formatString: #,0
+		displayFolder: 03 Forecast
+		lineageTag: 85c10f36-40cb-4314-998f-1b6188d8ed14
+
+	measure 'Target Low (mean - 1 SD)' = [Historical Monthly Mean] - [Historical Monthly SD]
+		formatString: #,0
+		displayFolder: 03 Forecast
+		lineageTag: bbe202b1-48e3-4f54-8410-03f2c31e6b13
+
+	measure 'Target High (mean + 1 SD)' = [Historical Monthly Mean] + [Historical Monthly SD]
+		formatString: #,0
+		displayFolder: 03 Forecast
+		lineageTag: ed9d774c-d34e-4dad-9383-a858bf00e4d4
+
+	measure 'MAPE Historical Mean (%)' = AVERAGE ( 'Forecast Metrics'[MAPE_mean] )
+		formatString: 0.0
+		displayFolder: 03 Forecast\Backtest
+		lineageTag: 3a060cc1-2b00-48a2-870c-20605b7ac919
+
+	measure 'MAPE Seasonal Naive (%)' = AVERAGE ( 'Forecast Metrics'[MAPE_naive] )
+		formatString: 0.0
+		displayFolder: 03 Forecast\Backtest
+		lineageTag: 8f596910-2cd1-428c-8103-b223de677205
+
+	measure 'MAPE Prophet (%)' = AVERAGE ( 'Forecast Metrics'[MAPE_prophet] )
+		formatString: 0.0
+		displayFolder: 03 Forecast\Backtest
+		lineageTag: 91798e47-c4fe-42c1-ac2a-a9e8288be311
+
+	/// Lowest-MAPE method in filter context.
+	measure 'Best Method' = VAR m = [MAPE Historical Mean (%)] VAR n = [MAPE Seasonal Naive (%)] VAR p = [MAPE Prophet (%)] VAR best = MIN ( m, MIN ( n, p ) ) RETURN SWITCH ( best, m, "Historical mean", n, "Seasonal naive", p, "Prophet" )
+		displayFolder: 03 Forecast\Backtest
+		lineageTag: a605f7b4-b6df-4245-b3a9-6628e0fbe2c3
+
+	measure 'Backtest Actual' = SUM ( 'Forecast Backtest'[y] )
+		formatString: #,0
+		displayFolder: 03 Forecast\Backtest
+		lineageTag: 04eaac69-1e00-49fa-a243-3a2812d8b3cd
+
+	measure 'Backtest APE Mean' = AVERAGE ( 'Forecast Backtest'[ape_yhat_mean] )
+		formatString: 0.0%
+		displayFolder: 03 Forecast\Backtest
+		lineageTag: 41011b80-d9f9-4ad0-83fb-5b85d6f60369
+
+	measure 'Backtest APE Naive' = AVERAGE ( 'Forecast Backtest'[ape_yhat_naive] )
+		formatString: 0.0%
+		displayFolder: 03 Forecast\Backtest
+		lineageTag: d731f12a-d319-4dd4-9973-3a72b3712e78
+
+	measure 'Backtest APE Prophet' = AVERAGE ( 'Forecast Backtest'[ape_yhat_prophet] )
+		formatString: 0.0%
+		displayFolder: 03 Forecast\Backtest
+		lineageTag: 9b5ba141-99d0-45ec-a634-6ce3c5831f70
+
+	/// Transaction-grain sales. Sliceable by date, product, channel, geography, segment.
+	measure 'Total Sales' = SUM ( Transactions[Sales] )
+		formatString: #,0
+		displayFolder: 00 Sales
+
+	measure 'Total Orders' = COUNTROWS ( Transactions )
+		formatString: #,0
+		displayFolder: 00 Sales
+
+	measure 'Total Units' = SUM ( Transactions[Quantity] )
+		formatString: #,0
+		displayFolder: 00 Sales
+
+	measure 'Avg Price per Unit' = DIVIDE ( [Total Sales], [Total Units] )
+		formatString: #,0.00
+		displayFolder: 00 Sales
+
+	/// Distinct customers with positive sales in the filter context (build.md '# Clients actifs').
+	measure 'Transacting Customers' = CALCULATE ( DISTINCTCOUNT ( Transactions[Customer Name] ), Transactions[Sales] > 0 )
+		formatString: #,0
+		displayFolder: 00 Sales
+
+	measure 'Sales LY' = CALCULATE ( [Total Sales], SAMEPERIODLASTYEAR ( 'Calendar'[Date] ) )
+		formatString: #,0
+		displayFolder: 00 Sales
+
+	/// Year-over-year growth. Blank when the current or prior period has no data. Interpretable for Germany only.
+	measure 'Sales YoY %' = VAR cur = [Total Sales] RETURN IF ( NOT ISBLANK ( cur ) && NOT ISBLANK ( [Sales LY] ), DIVIDE ( cur - [Sales LY], [Sales LY] ) )
+		formatString: 0.0%
+		displayFolder: 00 Sales
+
+	measure 'Sales YTD' = TOTALYTD ( [Total Sales], 'Calendar'[Date] )
+		formatString: #,0
+		displayFolder: 00 Sales
+
+	/// Total Sales divided by the number of months that actually have transactions in context — comparable across the DE (48m) and PL (12m) windows.
+	measure 'Monthly Sales Rate' = DIVIDE ( [Total Sales], COUNTROWS ( SUMMARIZE ( Transactions, 'Calendar'[Year Month] ) ) )
+		formatString: #,0
+		displayFolder: 00 Sales
+
+	/// Share of Total Sales across segments, keeping other filters (country, channel, date). build.md '% CA segment'.
+	measure 'Sales % of Segment' = DIVIDE ( [Total Sales], CALCULATE ( [Total Sales], REMOVEFILTERS ( 'Customer Segments'[Segment] ), REMOVEFILTERS ( 'Customer Segments'[Segment Order] ), REMOVEFILTERS ( 'Segment Profiles'[Segment] ), REMOVEFILTERS ( 'Segment Profiles'[Segment Order] ) ) )
+		formatString: 0.0%
+		displayFolder: 01 Customers
+
+	/// Observation months for the country in filter context (resolves against any country column in the model).
+	measure 'Months Observed' = VAR c = COALESCE ( SELECTEDVALUE ( 'Country Coverage'[Country] ), SELECTEDVALUE ( Transactions[Country] ), SELECTEDVALUE ( 'Customer Segments'[Country] ), SELECTEDVALUE ( 'Territories by City'[Country] ) ) RETURN LOOKUPVALUE ( 'Country Coverage'[Months Observed], 'Country Coverage'[Country], c )
+		formatString: 0
+		displayFolder: 00 Sales
+
+	/// Warning label when the country in context has a partial observation window (Poland). Blank otherwise.
+	measure 'Partial Window' = VAR c = COALESCE ( SELECTEDVALUE ( 'Country Coverage'[Country] ), SELECTEDVALUE ( Transactions[Country] ), SELECTEDVALUE ( 'Customer Segments'[Country] ), SELECTEDVALUE ( 'Territories by City'[Country] ) ) VAR fw = LOOKUPVALUE ( 'Country Coverage'[Full Window], 'Country Coverage'[Country], c ) RETURN IF ( fw = "No", "⚠ 2018 data only", BLANK () )
+		displayFolder: 00 Sales
+
+	/// Lowest MAPE across the three baselines in context (numeric companion of [Best Method]).
+	measure 'MAPE Best' = MIN ( [MAPE Historical Mean (%)], MIN ( [MAPE Seasonal Naive (%)], [MAPE Prophet (%)] ) )
+		formatString: 0.0
+		displayFolder: 03 Forecast\Backtest
+
+	column Value
+		isHidden
+		lineageTag: e1a387e0-7ea6-4195-a610-116f670c31e6
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition _Measures = calculated
+		mode: import
+		source = { BLANK() }
+

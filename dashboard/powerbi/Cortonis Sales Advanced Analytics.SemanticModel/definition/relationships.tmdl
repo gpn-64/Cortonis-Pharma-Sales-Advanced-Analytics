@@ -1,0 +1,60 @@
+relationship rel_Calendar_MonthlySalesHistory
+	fromColumn: 'Monthly Sales History'.ds
+	toColumn: Calendar.Date
+
+relationship rel_Calendar_ForecastProphet
+	fromColumn: 'Forecast Prophet'.ds
+	toColumn: Calendar.Date
+
+relationship rel_Calendar_ForecastBacktest
+	fromColumn: 'Forecast Backtest'.ds
+	toColumn: Calendar.Date
+
+relationship rel_ProductClass_MonthlySalesHistory
+	fromColumn: 'Monthly Sales History'.'Product Class'
+	toColumn: 'Product Class'.'Product Class'
+
+relationship rel_ProductClass_ForecastProphet
+	fromColumn: 'Forecast Prophet'.'Product Class'
+	toColumn: 'Product Class'.'Product Class'
+
+relationship rel_ProductClass_ForecastBacktest
+	fromColumn: 'Forecast Backtest'.'Product Class'
+	toColumn: 'Product Class'.'Product Class'
+
+relationship rel_ProductClass_ForecastMetrics
+	fromColumn: 'Forecast Metrics'.'Product Class'
+	toColumn: 'Product Class'.'Product Class'
+
+relationship rel_SegmentProfiles_CustomerSegments
+	fromColumn: 'Customer Segments'.Segment
+	toColumn: 'Segment Profiles'.Segment
+
+relationship rel_TerritoriesByRegion_TerritoriesByCity
+	fromColumn: 'Territories by City'.RegionCanonical
+	toColumn: 'Territories by Region'.RegionCanonical
+
+relationship rel_TerritoriesByCity_TerritoryOpportunities
+	fromColumn: 'Territory Opportunities'.City
+	toColumn: 'Territories by City'.City
+
+relationship rel_Calendar_Transactions
+	fromColumn: Transactions.Date
+	toColumn: Calendar.Date
+
+relationship rel_CustomerSegments_Transactions
+	fromColumn: Transactions.'Customer Name'
+	toColumn: 'Customer Segments'.'Customer Name'
+
+relationship rel_TerritoriesByCity_Transactions
+	fromColumn: Transactions.City
+	toColumn: 'Territories by City'.City
+
+relationship rel_ProductClass_Transactions
+	fromColumn: Transactions.'Product Class'
+	toColumn: 'Product Class'.'Product Class'
+
+relationship rel_CountryCoverage_Transactions
+	fromColumn: Transactions.Country
+	toColumn: 'Country Coverage'.Country
+

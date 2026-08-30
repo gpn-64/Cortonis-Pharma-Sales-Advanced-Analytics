@@ -1,0 +1,90 @@
+/// Module 3 — 2020 backtest: actual vs historical-mean / seasonal-naive / Prophet, with APE per method.
+table 'Forecast Backtest'
+	lineageTag: 3278ec40-e578-4e06-ba86-e5c2c4e0cd94
+
+	column ds
+		dataType: dateTime
+		formatString: yyyy-mm
+		lineageTag: 9c76fa86-2001-4486-b3ba-1fd1707c22bb
+		summarizeBy: none
+		sourceColumn: ds
+
+	column 'Product Class'
+		dataType: string
+		lineageTag: d52d33c9-d5b2-44a9-9765-483bbbfa7376
+		summarizeBy: none
+		sourceColumn: Product Class
+
+	column y
+		dataType: double
+		formatString: #,0
+		lineageTag: fb6ac4eb-60dc-47c7-9eac-aa1c50e50d93
+		summarizeBy: sum
+		sourceColumn: y
+
+	column yhat_mean
+		dataType: double
+		formatString: #,0
+		lineageTag: b48f3b96-5f94-4742-a737-0a5bf86106ed
+		summarizeBy: sum
+		sourceColumn: yhat_mean
+
+	column yhat_naive
+		dataType: double
+		formatString: #,0
+		lineageTag: 71d56605-2e6d-4637-94f6-9af55a99956f
+		summarizeBy: sum
+		sourceColumn: yhat_naive
+
+	column yhat_prophet
+		dataType: double
+		formatString: #,0
+		lineageTag: 206c794c-c7d4-41a3-94c0-b48abc09a2e1
+		summarizeBy: sum
+		sourceColumn: yhat_prophet
+
+	column yhat_lower
+		dataType: double
+		formatString: #,0
+		lineageTag: 460ff7dd-9169-4d19-a17a-b48576e91165
+		summarizeBy: sum
+		sourceColumn: yhat_lower
+
+	column yhat_upper
+		dataType: double
+		formatString: #,0
+		lineageTag: 2ec4d15a-e41c-4251-9ede-872178d80541
+		summarizeBy: sum
+		sourceColumn: yhat_upper
+
+	column ape_yhat_mean
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 9fa09fc8-379c-49ee-a48d-9fabca836fc8
+		summarizeBy: none
+		sourceColumn: ape_yhat_mean
+
+	column ape_yhat_naive
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 5c2fe19d-52c2-40de-a9ca-6432a447aac3
+		summarizeBy: none
+		sourceColumn: ape_yhat_naive
+
+	column ape_yhat_prophet
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 032269ba-cbe1-4725-b02f-150ab8227e0c
+		summarizeBy: none
+		sourceColumn: ape_yhat_prophet
+
+	partition 'Forecast Backtest' = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Cortonis-Pharma-Sales-Advanced-Analytics\results\generated\sales_forecast_backtest.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				  Typed = Table.TransformColumnTypes(Promoted, {{"ds", type datetime}, {"Product Class", type text}, {"y", type number}, {"yhat_mean", type number}, {"yhat_naive", type number}, {"yhat_prophet", type number}, {"yhat_lower", type number}, {"yhat_upper", type number}, {"ape_yhat_mean", type number}, {"ape_yhat_naive", type number}, {"ape_yhat_prophet", type number}})
+				in
+				  Typed
+

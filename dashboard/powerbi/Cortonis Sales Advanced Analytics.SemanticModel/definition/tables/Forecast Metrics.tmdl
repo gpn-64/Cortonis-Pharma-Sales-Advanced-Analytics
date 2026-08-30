@@ -1,0 +1,41 @@
+/// Module 3 — backtest MAPE (%) per class per method. Historical mean is lowest on all 6 classes.
+table 'Forecast Metrics'
+	lineageTag: f198c84f-2626-4bd6-931a-3f456d7335c4
+
+	column 'Product Class'
+		dataType: string
+		lineageTag: f33ecddb-94d1-4575-bc4a-6eb5995565c1
+		summarizeBy: none
+		sourceColumn: Product Class
+
+	column MAPE_mean
+		dataType: double
+		formatString: 0.0
+		lineageTag: f15891b8-de5a-4475-a31a-b669006daf2d
+		summarizeBy: none
+		sourceColumn: MAPE_mean
+
+	column MAPE_naive
+		dataType: double
+		formatString: 0.0
+		lineageTag: 4579e021-68c5-47e2-acb5-fe47cfba9999
+		summarizeBy: none
+		sourceColumn: MAPE_naive
+
+	column MAPE_prophet
+		dataType: double
+		formatString: 0.0
+		lineageTag: 783dc78b-ec6b-49d6-b857-1b10109bb8c0
+		summarizeBy: none
+		sourceColumn: MAPE_prophet
+
+	partition 'Forecast Metrics' = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Cortonis-Pharma-Sales-Advanced-Analytics\results\generated\sales_forecast_metrics.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				  Typed = Table.TransformColumnTypes(Promoted, {{"Product Class", type text}, {"MAPE_mean", type number}, {"MAPE_naive", type number}, {"MAPE_prophet", type number}})
+				in
+				  Typed
+

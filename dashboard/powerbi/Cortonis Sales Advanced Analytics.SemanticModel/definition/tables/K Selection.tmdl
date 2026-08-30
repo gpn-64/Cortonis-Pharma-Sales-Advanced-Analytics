@@ -1,0 +1,28 @@
+/// Module 1 — silhouette score for k=2..8, justifies k=4.
+table 'K Selection'
+	lineageTag: 44999a3b-acbc-446f-9a34-240beb7579d7
+
+	column k
+		dataType: int64
+		isNullable: false
+		lineageTag: b72b9138-1254-4c13-b8a1-f618bb4b32ea
+		summarizeBy: none
+		sourceColumn: k
+
+	column silhouette
+		dataType: double
+		formatString: 0.000
+		lineageTag: 22953b62-5020-44ab-8f94-f9c3221e8660
+		summarizeBy: none
+		sourceColumn: silhouette
+
+	partition 'K Selection' = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Cortonis-Pharma-Sales-Advanced-Analytics\results\generated\customer_k_selection.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				  Typed = Table.TransformColumnTypes(Promoted, {{"k", Int64.Type}, {"silhouette", type number}})
+				in
+				  Typed
+

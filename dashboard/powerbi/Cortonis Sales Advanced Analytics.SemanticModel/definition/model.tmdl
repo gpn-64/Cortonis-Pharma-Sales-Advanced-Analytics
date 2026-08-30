@@ -1,0 +1,32 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = []
+
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
+
+ref table Calendar
+ref table 'K Selection'
+ref table 'Customer Segments'
+ref table 'Segment Profiles'
+ref table 'Territories by City'
+ref table 'Territories by Region'
+ref table 'Territory Opportunities'
+ref table 'Monthly Sales History'
+ref table 'Forecast Prophet'
+ref table 'Forecast Backtest'
+ref table 'Forecast Metrics'
+ref table 'Product Class'
+ref table _Measures
+ref table Transactions
+ref table 'Country Coverage'
+
+ref cultureInfo en-US
+

@@ -1,0 +1,13 @@
+/// Therapeutic class dimension shared by the Module 3 forecast tables.
+table 'Product Class'
+	lineageTag: 5b8652d0-363a-450e-b78f-b7942bc98905
+
+	column 'Product Class'
+		lineageTag: 5fa6f7e1-126a-43f0-aeb7-65fe7e67fbc4
+		isNameInferred
+		sourceColumn: Monthly Sales History[Product Class]
+
+	partition 'Product Class' = calculated
+		mode: import
+		source = DISTINCT ( UNION ( DISTINCT ( 'Monthly Sales History'[Product Class] ), DISTINCT ( 'Forecast Prophet'[Product Class] ) ) )
+

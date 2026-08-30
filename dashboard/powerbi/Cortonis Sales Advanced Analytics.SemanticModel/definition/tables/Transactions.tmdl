@@ -1,0 +1,88 @@
+/// Transaction-grain fact from data/processed/transactions_normalized.csv (254,082 rows, DE 2017-2020 + PL 2018). Rep/manager/team columns dropped.
+table Transactions
+
+	column Date
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: Date
+
+	column Sales
+		dataType: double
+		formatString: #,0
+		summarizeBy: sum
+		sourceColumn: Sales
+
+	column Quantity
+		dataType: int64
+		formatString: #,0
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+	column Price
+		dataType: double
+		formatString: #,0.00
+		summarizeBy: none
+		sourceColumn: Price
+
+	column 'Customer Name'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+	column Distributor
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Distributor
+
+	column Country
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Country
+
+	column Channel
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Channel
+
+	column SubChannel
+		dataType: string
+		summarizeBy: none
+		sourceColumn: SubChannel
+
+	column 'Product Name'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Product Name
+
+	column 'Product Class'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Product Class
+
+	column City
+		dataType: string
+		summarizeBy: none
+		sourceColumn: City
+
+	column Region
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Region
+
+	column Population
+		dataType: double
+		formatString: #,0
+		summarizeBy: none
+		sourceColumn: Population
+
+	partition Transactions = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Cortonis-Pharma-Sales-Advanced-Analytics\data\processed\transactions_normalized.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				  Kept = Table.SelectColumns(Promoted, {"Date", "Sales", "Quantity", "Price", "Customer Name", "Distributor", "Country", "Channel", "SubChannel", "Product Name", "Product Class", "City", "Region", "Population"}),
+				  Typed = Table.TransformColumnTypes(Kept, {{"Date", type datetime}, {"Sales", type number}, {"Quantity", Int64.Type}, {"Price", type number}, {"Customer Name", type text}, {"Distributor", type text}, {"Country", type text}, {"Channel", type text}, {"SubChannel", type text}, {"Product Name", type text}, {"Product Class", type text}, {"City", type text}, {"Region", type text}, {"Population", type number}})
+				in
+				  Typed
+

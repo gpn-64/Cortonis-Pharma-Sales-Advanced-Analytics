@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Cortonis Sales Advanced Analytics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "013f7758-6b5f-4db1-9608-259fef3eca2b"
+  }
+}

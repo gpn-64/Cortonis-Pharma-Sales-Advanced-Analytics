@@ -1,0 +1,34 @@
+/// Module 3 — monthly sales by therapeutic class, Germany only, 2017-01..2020-12.
+table 'Monthly Sales History'
+	lineageTag: 71fdacbc-b7b3-4da7-b6ab-7f4c408b2db2
+
+	column ds
+		dataType: dateTime
+		formatString: yyyy-mm
+		lineageTag: 20620753-a024-4c9c-85a9-d75b745e7d45
+		summarizeBy: none
+		sourceColumn: ds
+
+	column 'Product Class'
+		dataType: string
+		lineageTag: 10c49c60-3fb9-437b-a6b4-c9044867b735
+		summarizeBy: none
+		sourceColumn: Product Class
+
+	column y
+		dataType: double
+		formatString: #,0
+		lineageTag: 84b6c164-ab1d-4b6c-8b4a-a1bfcbeffe87
+		summarizeBy: sum
+		sourceColumn: y
+
+	partition 'Monthly Sales History' = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Cortonis-Pharma-Sales-Advanced-Analytics\results\generated\monthly_sales_history.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				  Typed = Table.TransformColumnTypes(Promoted, {{"ds", type datetime}, {"Product Class", type text}, {"y", type number}})
+				in
+				  Typed
+

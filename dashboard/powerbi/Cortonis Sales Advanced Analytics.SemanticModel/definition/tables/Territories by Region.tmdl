@@ -1,0 +1,69 @@
+/// Module 2 — one row per canonical region (16 Bundesländer / 16 voivodeships).
+table 'Territories by Region'
+	lineageTag: 29ee8a87-7b63-42ae-b80e-e4546a93342d
+
+	column Country
+		dataType: string
+		lineageTag: dc448f93-7cbb-40fd-80eb-af930ba29763
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+	column RegionCanonical
+		dataType: string
+		lineageTag: b87e8a80-3aa6-4990-bf04-92cde7afdd8c
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: RegionCanonical
+
+	column Sales
+		dataType: double
+		formatString: #,0
+		lineageTag: 2177b133-1cde-4b14-9858-364fb7fd59dd
+		summarizeBy: sum
+		sourceColumn: Sales
+
+	column Population
+		dataType: double
+		formatString: #,0
+		lineageTag: ebe3c77e-db32-4bf1-b09e-21797348bb26
+		summarizeBy: sum
+		sourceColumn: Population
+
+	column MonthlySales
+		dataType: double
+		formatString: #,0
+		lineageTag: 5026c0af-e446-4eb5-9150-683bc2691336
+		summarizeBy: sum
+		sourceColumn: MonthlySales
+
+	column NCities
+		dataType: int64
+		lineageTag: e6c89c3c-5447-4bf4-b968-77c79b8cccae
+		summarizeBy: sum
+		sourceColumn: NCities
+
+	column AvgResidual
+		dataType: double
+		formatString: 0.000
+		lineageTag: a5015d27-8397-44e9-8c08-d7741ccf895e
+		summarizeBy: none
+		sourceColumn: AvgResidual
+
+	column SalesPerCapitaMonthly
+		dataType: double
+		formatString: 0.00
+		lineageTag: ba769f38-ad70-4bb8-a0ff-9c5479dc7ab4
+		summarizeBy: none
+		sourceColumn: SalesPerCapitaMonthly
+
+	partition 'Territories by Region' = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Cortonis-Pharma-Sales-Advanced-Analytics\results\generated\territories_by_region.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				  Typed = Table.TransformColumnTypes(Promoted, {{"Country", type text}, {"RegionCanonical", type text}, {"Sales", type number}, {"Population", type number}, {"MonthlySales", type number}, {"NCities", Int64.Type}, {"AvgResidual", type number}, {"SalesPerCapitaMonthly", type number}})
+				in
+				  Typed
+
