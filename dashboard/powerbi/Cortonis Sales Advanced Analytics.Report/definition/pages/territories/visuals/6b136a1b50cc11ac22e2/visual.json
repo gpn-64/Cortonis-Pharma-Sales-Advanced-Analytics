@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "6b136a1b50cc11ac22e2",
+  "position": {
+    "x": 420,
+    "y": 110,
+    "z": 0,
+    "height": 130,
+    "width": 356,
+    "tabOrder": 320
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Underserved Cities"
+                }
+              },
+              "queryRef": "_Measures.Underserved Cities",
+              "nativeQueryRef": "Underserved Cities"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

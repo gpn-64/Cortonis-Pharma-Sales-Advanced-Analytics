@@ -109,6 +109,7 @@ table 'Customer Segments'
 	column 'Segment Order'
 		dataType: int64
 		isHidden
+		lineageTag: 220295d0-e441-49a9-ae70-b20bbff8dcde
 		summarizeBy: none
 		sourceColumn: Segment Order
 

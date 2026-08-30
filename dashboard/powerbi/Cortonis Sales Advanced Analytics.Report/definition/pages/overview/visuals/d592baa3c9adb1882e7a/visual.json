@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "d592baa3c9adb1882e7a",
+  "position": {
+    "x": 1164,
+    "y": 120,
+    "z": 0,
+    "height": 150,
+    "width": 356,
+    "tabOrder": 70
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Cities"
+                }
+              },
+              "queryRef": "_Measures.Cities",
+              "nativeQueryRef": "Cities"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -79,6 +79,7 @@ table 'Segment Profiles'
 	column 'Segment Order'
 		dataType: int64
 		isHidden
+		lineageTag: 4a431a65-f0da-4105-9c06-b7a2cea19b5c
 		summarizeBy: none
 		sourceColumn: Segment Order
 

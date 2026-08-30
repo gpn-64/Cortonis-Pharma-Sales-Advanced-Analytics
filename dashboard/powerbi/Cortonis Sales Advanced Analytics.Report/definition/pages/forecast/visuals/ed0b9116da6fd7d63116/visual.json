@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "ed0b9116da6fd7d63116",
+  "position": {
+    "x": 420,
+    "y": 110,
+    "z": 0,
+    "height": 130,
+    "width": 356,
+    "tabOrder": 440
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "MAPE Prophet (%)"
+                }
+              },
+              "queryRef": "_Measures.MAPE Prophet (%)",
+              "nativeQueryRef": "MAPE Prophet (%)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

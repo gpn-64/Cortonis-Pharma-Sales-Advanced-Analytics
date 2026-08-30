@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "fd23b6f244438ba521ee",
+  "position": {
+    "x": 1164,
+    "y": 110,
+    "z": 0,
+    "height": 130,
+    "width": 356,
+    "tabOrder": 200
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Monthly Revenue Rate"
+                }
+              },
+              "queryRef": "_Measures.Avg Monthly Revenue Rate",
+              "nativeQueryRef": "Avg Monthly Revenue Rate"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

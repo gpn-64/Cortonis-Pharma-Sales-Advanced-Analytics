@@ -619,79 +619,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "1. Total_Sales"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Sales": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "POLAND": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "GERMANY": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "HOSPITAL": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "PHARMACY": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "BRAVO TEAM": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "ALPHA TEAM": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "measures__variables.column2__total_sale_last_year": {
 			      "Definition": {
@@ -700,19 +628,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "2. Total_Sale_Last_Year"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Sales Last Year": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "measures__variables.column1__total_unit": {
 			      "Definition": {
@@ -721,19 +637,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "1. Total_Unit"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "UNITS SOLD": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "measures__variables.column1__total_order": {
 			      "Definition": {
@@ -742,19 +646,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "1. Total_Order"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ORDERS": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "measures__variables.column1__avg_price_unit": {
 			      "Definition": {
@@ -763,19 +655,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "1. Avg_Price/Unit"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "PRICE/UNIT AVG": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "measures__variables.column1__active_customers": {
 			      "Definition": {
@@ -784,19 +664,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "1. Active_Customers"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ACTIVE CUSTOMERS": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "measures__variables.column4__delta_total_sales": {
 			      "Definition": {
@@ -805,19 +673,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "4. Delta%_Total_Sales"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Var% Sales": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "measures__variables.column5__delta_total_sales_nonformatted": {
 			      "Definition": {
@@ -826,19 +682,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "5. Delta%_Total_Sales_NonFormatted"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Growth YoY%": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "measures__variables.column6__total_sales_rep_vs_teamavg": {
 			      "Definition": {
@@ -847,19 +691,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "6. Total_Sales_Rep_vs_TeamAvg"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Rep Sales vs Team Avg": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "measures__variables.column7__total_sales_rep_rank_inteam": {
 			      "Definition": {
@@ -868,19 +700,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "7. Total_Sales_Rep_Rank_InTeam"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Rep Sales Team Rank": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "measures__variables.column8__total_sales_rep_vs_globalavg_sales": {
 			      "Definition": {
@@ -889,19 +709,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "8. Total_Sales_Rep_vs_GlobalAvg_Sales"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Rep Sales vs Global Avg": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "measures__variables.column9__total_sales_rep_rank_global": {
 			      "Definition": {
@@ -910,19 +718,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "9. Total_Sales_Rep_Rank_Global"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Rep Sales Global Rank": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "fact_sales.location_country": {
 			      "Definition": {
@@ -931,19 +727,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "Location_Country"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Country": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "fact_sales.location_region": {
 			      "Definition": {
@@ -952,19 +736,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "Location_Region"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Region": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "fact_sales.city": {
 			      "Definition": {
@@ -973,19 +745,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "City"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "City": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    }
 			  },
 			  "Relationships": {

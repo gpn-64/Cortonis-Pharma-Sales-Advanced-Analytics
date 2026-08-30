@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a12d8a1cfc5225ecf2e6",
+  "position": {
+    "x": 1490,
+    "y": 710,
+    "z": 0,
+    "height": 320,
+    "width": 382,
+    "tabOrder": 510
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Prophet is exploratory",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "fontWeight": "bold",
+                      "color": "#06331F"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Trained 2017-2019, tested 2020; second window 2017-2018 / 2019 — same result. Auto-ARIMA picks (0,0,0) on 5 of 6 classes.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#4A574F",
+                      "fontStyle": "italic"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "No usable trend or seasonality at this aggregation. Next step: an exogenous demand driver (promotions, tender cycles).",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#4A574F",
+                      "fontStyle": "italic"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

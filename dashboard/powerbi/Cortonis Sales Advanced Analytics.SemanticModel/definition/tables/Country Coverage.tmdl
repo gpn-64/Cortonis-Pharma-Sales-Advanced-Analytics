@@ -1,23 +1,29 @@
 /// Observation-window metadata per country — single source for the partial-window warnings.
 table 'Country Coverage'
+	lineageTag: 7d533998-d569-4327-9165-404dd6f6f304
 
 	column Country
+		lineageTag: 2fe820fd-7167-4dfe-9f88-541c49be1d66
 		isNameInferred
 		sourceColumn: [Country]
 
 	column 'Start Year'
+		lineageTag: 76bad0d8-2234-42e0-aaec-1786d660c197
 		isNameInferred
 		sourceColumn: [Start Year]
 
 	column 'End Year'
+		lineageTag: e2935ea6-c2a3-421c-89b5-7b6cd035baaa
 		isNameInferred
 		sourceColumn: [End Year]
 
 	column 'Months Observed'
+		lineageTag: 5a73f880-6f25-46de-852e-e06d09c862c4
 		isNameInferred
 		sourceColumn: [Months Observed]
 
 	column 'Full Window'
+		lineageTag: 2e7790fc-1748-4737-a2fd-83d100305c49
 		isNameInferred
 		sourceColumn: [Full Window]
 

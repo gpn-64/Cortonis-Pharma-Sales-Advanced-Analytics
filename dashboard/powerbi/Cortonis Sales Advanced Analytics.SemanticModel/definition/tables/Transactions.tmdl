@@ -1,77 +1,92 @@
 /// Transaction-grain fact from data/processed/transactions_normalized.csv (254,082 rows, DE 2017-2020 + PL 2018). Rep/manager/team columns dropped.
 table Transactions
+	lineageTag: eddcd47a-78b3-4e3a-8a17-2dc4acac5939
 
 	column Date
 		dataType: dateTime
+		lineageTag: 97a43b76-6642-4302-bac3-f309cd0ec93e
 		summarizeBy: none
 		sourceColumn: Date
 
 	column Sales
 		dataType: double
 		formatString: #,0
+		lineageTag: be1a662c-0b31-4c87-8a21-0b1521ce099b
 		summarizeBy: sum
 		sourceColumn: Sales
 
 	column Quantity
 		dataType: int64
 		formatString: #,0
+		lineageTag: 4d183fc6-d7c1-4ddf-a09d-df8001858b64
 		summarizeBy: sum
 		sourceColumn: Quantity
 
 	column Price
 		dataType: double
 		formatString: #,0.00
+		lineageTag: 94246723-ae73-4231-b941-8eb1ea302f40
 		summarizeBy: none
 		sourceColumn: Price
 
 	column 'Customer Name'
 		dataType: string
+		lineageTag: 3fb6d54d-68ae-40d7-b226-539818bee50d
 		summarizeBy: none
 		sourceColumn: Customer Name
 
 	column Distributor
 		dataType: string
+		lineageTag: 17d8f574-955b-4f14-bd8d-d79c4565935b
 		summarizeBy: none
 		sourceColumn: Distributor
 
 	column Country
 		dataType: string
+		lineageTag: a90b6361-4a7f-49bc-b820-83d3a5f195bb
 		summarizeBy: none
 		sourceColumn: Country
 
 	column Channel
 		dataType: string
+		lineageTag: a9c98ea0-8996-4cf8-9340-c9f73fd5cdb8
 		summarizeBy: none
 		sourceColumn: Channel
 
 	column SubChannel
 		dataType: string
+		lineageTag: fe1bc60f-e703-4b93-96de-d4ef731a359c
 		summarizeBy: none
 		sourceColumn: SubChannel
 
 	column 'Product Name'
 		dataType: string
+		lineageTag: 98968b5b-4009-4fd8-a7d7-bf5da9c7e8c0
 		summarizeBy: none
 		sourceColumn: Product Name
 
 	column 'Product Class'
 		dataType: string
+		lineageTag: 5e11e279-4f33-4764-b3a9-9f835958dda9
 		summarizeBy: none
 		sourceColumn: Product Class
 
 	column City
 		dataType: string
+		lineageTag: 8f9adf24-5316-4e97-be11-e1f8a1caddd4
 		summarizeBy: none
 		sourceColumn: City
 
 	column Region
 		dataType: string
+		lineageTag: 9b82a78b-4fb4-4df6-a9d8-08bee9370aba
 		summarizeBy: none
 		sourceColumn: Region
 
 	column Population
 		dataType: double
 		formatString: #,0
+		lineageTag: bbd8c59f-6370-4352-91a9-11b0bebc15ab
 		summarizeBy: none
 		sourceColumn: Population
 

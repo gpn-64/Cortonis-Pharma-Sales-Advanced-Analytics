@@ -1,0 +1,148 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "902128bbb6bd006a43a1",
+  "position": {
+    "x": 770,
+    "y": 710,
+    "z": 0,
+    "height": 320,
+    "width": 700,
+    "tabOrder": 390
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Territories by Region"
+                    }
+                  },
+                  "Property": "RegionCanonical"
+                }
+              },
+              "queryRef": "Territories by Region.RegionCanonical",
+              "nativeQueryRef": "RegionCanonical",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Territories by Region"
+                    }
+                  },
+                  "Property": "Sales"
+                }
+              },
+              "queryRef": "Territories by Region.Sales",
+              "nativeQueryRef": "Sales",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Territories by Region"
+                    }
+                  },
+                  "Property": "NCities"
+                }
+              },
+              "queryRef": "Territories by Region.NCities",
+              "nativeQueryRef": "NCities",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Territories by Region"
+                    }
+                  },
+                  "Property": "SalesPerCapitaMonthly"
+                }
+              },
+              "queryRef": "Territories by Region.SalesPerCapitaMonthly",
+              "nativeQueryRef": "SalesPerCapitaMonthly",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Territories by Region"
+                    }
+                  },
+                  "Property": "AvgResidual"
+                }
+              },
+              "queryRef": "Territories by Region.AvgResidual",
+              "nativeQueryRef": "AvgResidual",
+              "active": false
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Regions'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Trebuchet MS'''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

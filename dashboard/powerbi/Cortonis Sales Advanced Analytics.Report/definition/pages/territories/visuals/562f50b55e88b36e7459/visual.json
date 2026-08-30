@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "562f50b55e88b36e7459",
+  "position": {
+    "x": 1490,
+    "y": 710,
+    "z": 0,
+    "height": 320,
+    "width": 382,
+    "tabOrder": 400
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "⚠ R² = 0.02",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "fontWeight": "bold",
+                      "color": "#06331F"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Population barely explains B2B sales volume. These quadrants are a prioritisation starting point, not proof of undercoverage — validate with the field team.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#4A574F",
+                      "fontStyle": "italic"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "~1 customer per city here: 'territory' doesn't separate weak coverage from 'this one client buys less'.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#4A574F",
+                      "fontStyle": "italic"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

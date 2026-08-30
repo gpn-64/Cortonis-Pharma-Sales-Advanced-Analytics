@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "664b207187c5a285b01f",
+  "position": {
+    "x": 48,
+    "y": 32,
+    "z": 0,
+    "height": 52,
+    "width": 1100,
+    "tabOrder": 280
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Territory Performance vs Potential",
+                    "textStyle": {
+                      "fontSize": "28pt",
+                      "fontWeight": "bold",
+                      "color": "#06331F",
+                      "fontFamily": "Trebuchet MS"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

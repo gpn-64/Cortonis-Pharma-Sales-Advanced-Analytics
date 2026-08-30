@@ -65,44 +65,9 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "bg1-executive-overview3491233025187799.png",
-          "path": "bg1-executive-overview3491233025187799.png",
-          "type": "Image"
-        },
-        {
-          "name": "bg2-territory-performance3497453759008192.png",
-          "path": "bg2-territory-performance3497453759008192.png",
-          "type": "Image"
-        },
-        {
-          "name": "bg3-product-mix9397713524599047.png",
-          "path": "bg3-product-mix9397713524599047.png",
-          "type": "Image"
-        },
-        {
-          "name": "bg4-channel-customer4720903061596866.png",
-          "path": "bg4-channel-customer4720903061596866.png",
-          "type": "Image"
-        },
-        {
-          "name": "bg5-sales-rep-team7925004796210792.png",
-          "path": "bg5-sales-rep-team7925004796210792.png",
-          "type": "Image"
-        },
-        {
           "name": "Cortonis_Pharma___Green2711055423594342.json",
           "path": "Cortonis_Pharma___Green2711055423594342.json",
           "type": "CustomTheme"
-        },
-        {
-          "name": "Quadrant_Legend41302880640518236.png",
-          "path": "Quadrant_Legend41302880640518236.png",
-          "type": "Image"
-        },
-        {
-          "name": "setting13456253711505894.png",
-          "path": "setting13456253711505894.png",
-          "type": "Image"
         }
       ]
     }

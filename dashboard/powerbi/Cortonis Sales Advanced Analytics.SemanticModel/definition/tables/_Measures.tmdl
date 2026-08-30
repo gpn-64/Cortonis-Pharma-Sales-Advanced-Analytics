@@ -175,60 +175,73 @@ table _Measures
 	measure 'Total Sales' = SUM ( Transactions[Sales] )
 		formatString: #,0
 		displayFolder: 00 Sales
+		lineageTag: 3b3a8a97-56ac-4eec-8fee-21eccd89c72c
 
 	measure 'Total Orders' = COUNTROWS ( Transactions )
 		formatString: #,0
 		displayFolder: 00 Sales
+		lineageTag: 2818cef5-e024-4ece-9706-46161a50f921
 
 	measure 'Total Units' = SUM ( Transactions[Quantity] )
 		formatString: #,0
 		displayFolder: 00 Sales
+		lineageTag: d8b02d2e-8a0c-4602-8b0c-b38182c723f4
 
 	measure 'Avg Price per Unit' = DIVIDE ( [Total Sales], [Total Units] )
 		formatString: #,0.00
 		displayFolder: 00 Sales
+		lineageTag: cf7decdb-e567-4cc9-ae4e-3945ed28d567
 
 	/// Distinct customers with positive sales in the filter context (build.md '# Clients actifs').
 	measure 'Transacting Customers' = CALCULATE ( DISTINCTCOUNT ( Transactions[Customer Name] ), Transactions[Sales] > 0 )
 		formatString: #,0
 		displayFolder: 00 Sales
+		lineageTag: 8790e5af-9a94-4a21-93be-902fcf45af56
 
 	measure 'Sales LY' = CALCULATE ( [Total Sales], SAMEPERIODLASTYEAR ( 'Calendar'[Date] ) )
 		formatString: #,0
 		displayFolder: 00 Sales
+		lineageTag: fcbb9920-6e15-4956-a456-85b5e1d2a165
 
 	/// Year-over-year growth. Blank when the current or prior period has no data. Interpretable for Germany only.
 	measure 'Sales YoY %' = VAR cur = [Total Sales] RETURN IF ( NOT ISBLANK ( cur ) && NOT ISBLANK ( [Sales LY] ), DIVIDE ( cur - [Sales LY], [Sales LY] ) )
 		formatString: 0.0%
 		displayFolder: 00 Sales
+		lineageTag: 4ae0c15c-da53-405a-aab2-1480b66eb8fe
 
 	measure 'Sales YTD' = TOTALYTD ( [Total Sales], 'Calendar'[Date] )
 		formatString: #,0
 		displayFolder: 00 Sales
+		lineageTag: a4087575-8d64-4111-a38c-30afe0e0dae3
 
 	/// Total Sales divided by the number of months that actually have transactions in context — comparable across the DE (48m) and PL (12m) windows.
 	measure 'Monthly Sales Rate' = DIVIDE ( [Total Sales], COUNTROWS ( SUMMARIZE ( Transactions, 'Calendar'[Year Month] ) ) )
 		formatString: #,0
 		displayFolder: 00 Sales
+		lineageTag: 2517e899-4a70-44ab-aeaf-eb703ce3f7f1
 
 	/// Share of Total Sales across segments, keeping other filters (country, channel, date). build.md '% CA segment'.
 	measure 'Sales % of Segment' = DIVIDE ( [Total Sales], CALCULATE ( [Total Sales], REMOVEFILTERS ( 'Customer Segments'[Segment] ), REMOVEFILTERS ( 'Customer Segments'[Segment Order] ), REMOVEFILTERS ( 'Segment Profiles'[Segment] ), REMOVEFILTERS ( 'Segment Profiles'[Segment Order] ) ) )
 		formatString: 0.0%
 		displayFolder: 01 Customers
+		lineageTag: bc20440b-63a2-4398-ab31-e619093dcd6b
 
 	/// Observation months for the country in filter context (resolves against any country column in the model).
 	measure 'Months Observed' = VAR c = COALESCE ( SELECTEDVALUE ( 'Country Coverage'[Country] ), SELECTEDVALUE ( Transactions[Country] ), SELECTEDVALUE ( 'Customer Segments'[Country] ), SELECTEDVALUE ( 'Territories by City'[Country] ) ) RETURN LOOKUPVALUE ( 'Country Coverage'[Months Observed], 'Country Coverage'[Country], c )
 		formatString: 0
 		displayFolder: 00 Sales
+		lineageTag: 1a51528c-1fdf-471e-8b1b-364e204ac287
 
 	/// Warning label when the country in context has a partial observation window (Poland). Blank otherwise.
 	measure 'Partial Window' = VAR c = COALESCE ( SELECTEDVALUE ( 'Country Coverage'[Country] ), SELECTEDVALUE ( Transactions[Country] ), SELECTEDVALUE ( 'Customer Segments'[Country] ), SELECTEDVALUE ( 'Territories by City'[Country] ) ) VAR fw = LOOKUPVALUE ( 'Country Coverage'[Full Window], 'Country Coverage'[Country], c ) RETURN IF ( fw = "No", "⚠ 2018 data only", BLANK () )
 		displayFolder: 00 Sales
+		lineageTag: 4e042488-6838-4c1a-9911-9e24168ec2e7
 
 	/// Lowest MAPE across the three baselines in context (numeric companion of [Best Method]).
 	measure 'MAPE Best' = MIN ( [MAPE Historical Mean (%)], MIN ( [MAPE Seasonal Naive (%)], [MAPE Prophet (%)] ) )
 		formatString: 0.0
 		displayFolder: 03 Forecast\Backtest
+		lineageTag: d267478a-a077-4c2a-ac5a-afa4af22c565
 
 	column Value
 		isHidden
