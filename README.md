@@ -1,5 +1,8 @@
 # 💊 Cortonis Pharma - Advanced Analytics Layer
 
+![status](https://img.shields.io/badge/status-active-brightgreen)
+![license](https://img.shields.io/badge/license-MIT-blue)
+
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)]() [![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)]() [![Prophet](https://img.shields.io/badge/Prophet-0088CC?style=for-the-badge&logo=facebook&logoColor=white)]() [![GeoPandas](https://img.shields.io/badge/GeoPandas-139C5A?style=for-the-badge&logo=googleearth&logoColor=white)]() [![Power BI](<https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black>)]()
 
 ## About
@@ -145,18 +148,39 @@ The Excel files are historical reference outputs used to understand the analyses
 the Power BI tables. They are not the production pipeline and can be replaced once
 the notebooks are rebuilt.
 
-## Development status
+## Repository structure
 
-The reproducible rebuild uses the following structure:
+This repo follows the [BI-Repository-Template](https://github.com/gpn-64/BI-Repository-Template),
+adapted for a Python analytics layer: there is **no `sql/` layer** (the Power Query M lives in
+the semantic model, TMDL) and the `dashboard/tableau/` folder is unused.
 
-| Path                   | Purpose                                               |
-| ---------------------- | ----------------------------------------------------- |
-| `data/raw/`          | Original source data, kept locally and never modified |
-| `data/processed/`    | Regenerated normalized and enriched tables            |
-| `src/`               | Reusable transformations and validation rules         |
-| `notebooks/`         | One notebook per analytical module                    |
-| `results/generated/` | CSV/Parquet outputs consumed by Power BI              |
-| `tests/`             | Data-contract and analytical validation tests         |
+```
+Cortonis-Pharma-Sales-Advanced-Analytics/
+├── data/
+│   ├── raw/              # original source data — kept local, never modified, gitignored
+│   └── processed/        # normalized/enriched tables, reproducible — gitignored
+├── src/                  # reusable transformations and validation rules
+├── scripts/              # prepare_data.py, run_pipeline.py
+├── notebooks/            # one notebook per analytical module
+├── results/generated/    # CSV outputs consumed by Power BI — gitignored
+├── tests/                # data-contract and analytical validation tests
+├── dashboard/
+│   ├── powerbi/          # Power BI project, PBIP format (JSON/TMDL, versionable)
+│   └── assets/           # backgrounds, icons, logo imported into the report
+├── docs/                 # data-dictionary.md, methodology.md
+├── reports/screenshots/  # captures of the final Power BI report
+├── CHANGELOG.md
+├── LICENSE
+└── README.md
+```
+
+## Documentation
+
+- [Data dictionary](docs/data-dictionary.md) — every generated table, its grain and columns.
+- [Methodology](docs/methodology.md) — sources, pipeline, KPI definitions, assumptions and limits.
+- [Changelog](CHANGELOG.md)
+
+## Reproducible pipeline
 
 The first prerequisite is to recover the transaction-level dataset and confirm its
 schema against the canonical contract in `src/data_contract.py`.
@@ -178,3 +202,9 @@ push is performed by the project scripts.
 Foresight - Pharmaceutical Manufacturing Company's Wholesale-Retail Data: [https://foresightbi.com.ng/practice-data/3-datasets-for-your-portfolio/](https://foresightbi.com.ng/practice-data/3-datasets-for-your-portfolio/)
 
 Part 2 of a two-part project - [Project 1](https://github.com/gpn64/Cortonis-Pharma-Sales-Dashboard) has the Power BI dashboard this builds on.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see [LICENSE](LICENSE).

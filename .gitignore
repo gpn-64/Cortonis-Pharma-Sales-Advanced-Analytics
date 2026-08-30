@@ -1,23 +1,61 @@
 # Local environments
 .venv/
 venv/
+env/
 __pycache__/
 .pytest_cache/
 *.py[cod]
+*.egg-info/
 
 # Local data and generated outputs
 data/raw/*
 data/processed/*
 results/generated/*
+!data/README.md
 !data/raw/README.md
 !data/processed/README.md
 !results/generated/README.md
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!results/generated/.gitkeep
 
 # Notebook-generated metadata
 .ipynb_checkpoints/
 
-# Local tooling
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Power BI
+~$*.pbix
+*.pbix.bak
+**/.pbi/cache/
+**/.pbi/*.abf
+**/.pbi/localSettings.json
+**/*.pbip.bak
+
+# Tableau
+~$*.twbx
+*.twbx.bak
+*.tde
+*.hyper.lock
+
+# Secrets / local config
+.env
+.env.*
+!.env.example
+credentials.json
+*.key
+.mcp.json
+
+# Logs
+*.log
+
+# Local tooling / editors
 .vscode/
+.idea/
+*.swp
 
 # Local building notes
 docs/building_guide.md

@@ -1,0 +1,30 @@
+# Reconnaissance des langages par GitHub Linguist
+*.sql linguist-language=SQL text
+*.pq  linguist-language=M text
+*.m   linguist-language=M text
+
+# Notebooks Jupyter — générés, exclus des stats de langage et du diff par défaut
+*.ipynb linguist-generated=true
+
+# Power BI Project (.pbip) — JSON/TMDL, texte diffable (contrairement au .pbix binaire)
+*.tmdl text
+*.pbip text
+*.pbir text
+
+# Fichiers binaires — pas de diff textuel
+*.pbix binary
+*.twbx binary
+*.twb  binary
+*.xlsx binary
+*.xls  binary
+*.parquet binary
+
+# Images — binaire
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+
+# Normalisation des fins de ligne
+* text=auto eol=lf
