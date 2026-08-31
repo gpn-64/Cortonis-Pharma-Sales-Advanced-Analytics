@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "397de3c2edc2b3d9d904",
+  "name": "1e10027dfea0cb0ef6d7",
   "position": {
-    "x": 48,
-    "y": 84,
-    "z": 0,
-    "height": 26,
-    "width": 1300,
-    "tabOrder": 20
+    "x": 17.48946862020156,
+    "y": 225.79742824381472,
+    "z": 23000,
+    "height": 51.25,
+    "width": 183.75,
+    "tabOrder": 22000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,10 +19,21 @@
               {
                 "textRuns": [
                   {
-                    "value": "Explain · prioritise · project — companion to the Sales Dashboard. Germany 2017-2020, Poland 2018.",
+                    "value": "Last updated on:",
                     "textStyle": {
                       "fontSize": "11pt",
-                      "color": "#7C8880"
+                      "color": "#e6e6e6"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2020-12-30 14:02:32",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#e6e6e6"
                     }
                   }
                 ]
@@ -32,7 +43,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "background": [
         {
@@ -47,6 +57,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

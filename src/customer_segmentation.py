@@ -10,10 +10,10 @@ from sklearn.preprocessing import StandardScaler
 
 
 SEGMENT_NAMES = {
-    (True, "high"): "Comptes Strategiques (Key Accounts)",
-    (True, "low"): "Coeur de Portefeuille (Core Active)",
-    (False, "high"): "Dormants a Haut Potentiel (Win-back prioritaire)",
-    (False, "low"): "Dormants a Faible Valeur",
+    (True, "high"): "Key Accounts",
+    (True, "low"): "Core Active",
+    (False, "high"): "Dormant - High Potential (Win-back)",
+    (False, "low"): "Dormant - Low Value",
 }
 
 
@@ -71,7 +71,7 @@ def fit_segments(
 
     active_cutoff = result["Recency"].median()
     result["IsActive"] = result["Recency"] <= active_cutoff
-    result["Status"] = np.where(result["IsActive"], "Actifs", "Dormants")
+    result["Status"] = np.where(result["IsActive"], "Active", "Dormant")
     result["Segment"] = _label_segments(result)
     return result, model, scaler
 

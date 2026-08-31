@@ -50,8 +50,8 @@ Toutes les tables sont générées dans `results/generated/` par `scripts/run_pi
 | `AvgOrderValue` | FLOAT | `Monetary / Frequency` |
 | `Cluster` | INT | Numéro de cluster K-Means (non stable entre exécutions) |
 | `IsActive` | BOOL | Actif vs dormant (médiane de recency) |
-| `Status` | STRING | `Actifs` / `Dormants` |
-| `Segment` | STRING | `Comptes Strategiques (Key Accounts)`, `Coeur de Portefeuille (Core Active)`, `Dormants a Haut Potentiel (Win-back prioritaire)`, `Dormants a Faible Valeur` |
+| `Status` | STRING | `Active` / `Dormant` |
+| `Segment` | STRING | `Key Accounts`, `Core Active`, `Dormant - High Potential (Win-back)`, `Dormant - Low Value` |
 
 ## Table : `customer_segment_profiles` (Module 1) — 4 lignes
 
@@ -77,7 +77,7 @@ Toutes les tables sont générées dans `results/generated/` par `scripts/run_pi
 | `Channel` | STRING | Canal dominant |
 | `MonthlySales` | FLOAT | `Sales / ActiveMonths` |
 | `Residual` | FLOAT | Résidu de la régression log-log population→ventes (R² ≈ 0,02) |
-| `Quadrant` | STRING | `Sous-exploite (opportunite)`, `Marche fort / bien couvert`, `Niche efficace`, `Priorite faible` |
+| `Quadrant` | STRING | `Underserved (opportunity)`, `Strong & well covered`, `Efficient niche`, `Low priority` |
 
 ## Table : `territories_by_region` (Module 2) — 32 lignes
 

@@ -4,7 +4,7 @@
   "position": {
     "x": 1490,
     "y": 260,
-    "z": 0,
+    "z": 12000,
     "height": 430,
     "width": 382,
     "tabOrder": 370
@@ -52,7 +52,6 @@
         }
       }
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -128,6 +127,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

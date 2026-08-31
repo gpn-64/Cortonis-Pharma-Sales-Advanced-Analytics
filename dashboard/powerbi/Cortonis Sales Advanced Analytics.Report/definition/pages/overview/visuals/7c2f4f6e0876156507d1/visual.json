@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "d8a898ec4b8aa61ff860",
+  "name": "7c2f4f6e0876156507d1",
   "position": {
-    "x": 48,
-    "y": 32,
-    "z": 0,
-    "height": 52,
-    "width": 1100,
-    "tabOrder": 10
+    "x": 277.35610797620865,
+    "y": 19.989629403690714,
+    "z": 16000,
+    "height": 67.464999237456155,
+    "width": 627.17462254079612,
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,12 +19,22 @@
               {
                 "textRuns": [
                   {
-                    "value": "Cortonis Pharma — Advanced Analytics",
+                    "value": "Executive Overview",
                     "textStyle": {
-                      "fontSize": "28pt",
                       "fontWeight": "bold",
-                      "color": "#06331F",
-                      "fontFamily": "Trebuchet MS"
+                      "fontFamily": "Trebuchet MS",
+                      "fontSize": "20pt",
+                      "color": "#000000"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Is the business healthy, where are the three levers, and can the analyses be trusted?",
+                    "textStyle": {
+                      "fontSize": "12pt"
                     }
                   }
                 ]
@@ -34,7 +44,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "background": [
         {
@@ -49,6 +58,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

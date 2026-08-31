@@ -1,10 +1,5 @@
 # 💊 Cortonis Pharma - Advanced Analytics Layer
 
-![status](https://img.shields.io/badge/status-active-brightgreen)
-![license](https://img.shields.io/badge/license-MIT-blue)
-
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)]() [![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)]() [![Prophet](https://img.shields.io/badge/Prophet-0088CC?style=for-the-badge&logo=facebook&logoColor=white)]() [![GeoPandas](https://img.shields.io/badge/GeoPandas-139C5A?style=for-the-badge&logo=googleearth&logoColor=white)]() [![Power BI](<https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black>)]()
-
 ## About
 
 Cortonis Pharma Advanced Analytics is a Python and Power BI portfolio project built on the same pharmaceutical sales dataset as the [Cortonis Pharma Sales Dashboard](https://github.com/gpn64/Cortonis-Pharma-Sales-Dashboard).

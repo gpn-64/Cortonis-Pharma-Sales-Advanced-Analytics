@@ -10,10 +10,10 @@ from src.region_mapping import add_canonical_region
 
 
 QUADRANTS = {
-    (True, True): "Marche fort / bien couvert",
-    (True, False): "Sous-exploite (opportunite)",
-    (False, True): "Niche efficace",
-    (False, False): "Priorite faible",
+    (True, True): "Strong & well covered",
+    (True, False): "Underserved (opportunity)",
+    (False, True): "Efficient niche",
+    (False, False): "Low priority",
 }
 
 
@@ -75,4 +75,4 @@ def top_opportunities(city: pd.DataFrame) -> pd.DataFrame:
     """Return underexploited cities ordered by the most negative residual."""
 
     columns = ["City", "Country", "RegionCanonical", "Population", "MonthlySales", "Residual", "Channel"]
-    return city.loc[city["Quadrant"] == "Sous-exploite (opportunite)", columns].sort_values("Residual")
+    return city.loc[city["Quadrant"] == "Underserved (opportunity)", columns].sort_values("Residual")

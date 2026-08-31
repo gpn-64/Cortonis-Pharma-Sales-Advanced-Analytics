@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Cortonis_Pharma___Green2711055423594342.json",
+      "name": "Cortonis_Pharma___Green27361605540474077.json",
       "reportVersionAtImport": {
         "visual": "2.12.0",
         "report": "3.4.0",
@@ -65,9 +65,19 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "Cortonis_Pharma___Green2711055423594342.json",
-          "path": "Cortonis_Pharma___Green2711055423594342.json",
+          "name": "abg1-executive-overview4994030746288609.png",
+          "path": "abg1-executive-overview4994030746288609.png",
+          "type": "Image"
+        },
+        {
+          "name": "Cortonis_Pharma___Green27361605540474077.json",
+          "path": "Cortonis_Pharma___Green27361605540474077.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "setting13456253711505894.png",
+          "path": "setting13456253711505894.png",
+          "type": "Image"
         }
       ]
     }

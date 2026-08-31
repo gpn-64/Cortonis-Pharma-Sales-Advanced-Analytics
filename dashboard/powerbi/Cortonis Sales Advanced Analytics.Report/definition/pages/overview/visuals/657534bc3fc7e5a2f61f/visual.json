@@ -1,0 +1,51 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "657534bc3fc7e5a2f61f",
+  "position": {
+    "x": 1097.1009353871186,
+    "y": 949.24263587755968,
+    "z": 7000,
+    "height": 93.701387829800211,
+    "width": 375,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "A handful of territories",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#06331f"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Warsaw first, then cross-sell on existing German accounts (Düsseldorf, Leipzig, Essen). Quadrants are a lead to qualify, not proof.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI, sans-serif",
+                      "fontStyle": "italic",
+                      "fontSize": "12.5px",
+                      "color": "#4a574f"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

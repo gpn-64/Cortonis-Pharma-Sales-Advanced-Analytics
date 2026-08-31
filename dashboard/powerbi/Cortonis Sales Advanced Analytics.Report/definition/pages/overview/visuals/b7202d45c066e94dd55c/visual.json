@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "015fa2d7706b936a7471",
+  "name": "b7202d45c066e94dd55c",
   "position": {
-    "x": 1560,
-    "y": 40,
-    "z": 0,
-    "height": 60,
-    "width": 312,
-    "tabOrder": 30
+    "x": 1836.571329573761,
+    "y": 37.870671826833004,
+    "z": 27000,
+    "height": 37.5,
+    "width": 61.25,
+    "tabOrder": 26000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,21 +19,20 @@
               {
                 "textRuns": [
                   {
-                    "value": "⚠ Poland: 2018 only — YoY and dormant segments read against a partial window.",
+                    "value": "MU",
                     "textStyle": {
-                      "fontSize": "10pt",
-                      "color": "#4A574F",
-                      "fontStyle": "italic"
+                      "fontSize": "12pt",
+                      "color": "#ffffff"
                     }
                   }
-                ]
+                ],
+                "horizontalTextAlignment": "center"
               }
             ]
           }
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "background": [
         {
@@ -48,6 +47,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }
